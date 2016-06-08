@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ti:app xmlns:ti="http://ti.appcelerator.org">
+    <id>com.pesquisa.br</id>
+    <name>Pesquisa</name>
+    <version>1.0</version>
+    <publisher>Lukas</publisher>
+    <url/>
+    <description/>
+    <copyright>2016 by Lukas</copyright>
+    <icon>appicon.png</icon>
+    <fullscreen>false</fullscreen>
+    <navbar-hidden>false</navbar-hidden>
+    <analytics>true</analytics>
+    <guid>f1f9d43d-9839-409e-9bbb-cb37ea90724d</guid>
+    <property name="ti.ui.defaultunit" type="string">dp</property>
+    <ios>
+        <enable-launch-screen-storyboard>true</enable-launch-screen-storyboard>
+        <plist>
+            <dict>
+                <key>UISupportedInterfaceOrientations~iphone</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                </array>
+                <key>UISupportedInterfaceOrientations~ipad</key>
+                <array>
+                    <string>UIInterfaceOrientationPortrait</string>
+                    <string>UIInterfaceOrientationPortraitUpsideDown</string>
+                    <string>UIInterfaceOrientationLandscapeLeft</string>
+                    <string>UIInterfaceOrientationLandscapeRight</string>
+                </array>
+                <key>UIRequiresPersistentWiFi</key>
+                <false/>
+                <key>UIPrerenderedIcon</key>
+                <false/>
+                <key>UIStatusBarHidden</key>
+                <false/>
+                <key>UIStatusBarStyle</key>
+                <string>UIStatusBarStyleDefault</string>
+            </dict>
+        </plist>
+    </ios>
+    <android xmlns:android="http://schemas.android.com/apk/res/android"/>
+    <mobileweb>
+        <precache/>
+        <splash>
+            <enabled>true</enabled>
+            <inline-css-images>true</inline-css-images>
+        </splash>
+        <theme>default</theme>
+    </mobileweb>
+    <modules>
+        <module platform="commonjs">ti.cloud</module>
+    </modules>
+    <deployment-targets>
+        <target device="iphone">false</target>
+        <target device="ipad">false</target>
+        <target device="android">true</target>
+        <target device="mobileweb">true</target>
+        <target device="windows">false</target>
+    </deployment-targets>
+    <sdk-version>5.2.2.GA</sdk-version>
+    <property name="appc-app-id" type="string">57575e8f07b03c6b1f2ae698</property>
+    <property name="acs-authbase-url-development" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-development" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-development" type="string">hhM5D4NWtat763REh9BhrUIqy9z3j4Al</property>
+    <property name="acs-oauth-key-development" type="string">mCYv2a6K0u5EzL4H3bFHztn2VRwG8YI4</property>
+    <property name="acs-api-key-development" type="string">g8SOACfDaR90YeJmQIHIW9H9y8Asb9pX</property>
+    <property name="acs-username-development" type="string">appc_app_user_dev</property>
+    <property name="acs-password-development" type="string">Tid2mqDIgicyqMyTEn</property>
+    <property name="acs-authbase-url-production" type="string">https://secure-identity.cloud.appcelerator.com</property>
+    <property name="acs-base-url-production" type="string">https://api.cloud.appcelerator.com</property>
+    <property name="acs-oauth-secret-production" type="string">FXurX2d26Q7UktPSC9ZNeniSNUDY0jpt</property>
+    <property name="acs-oauth-key-production" type="string">n66RjsAraydfQ9lr6wi7EkKGqCkvwk8b</property>
+    <property name="acs-api-key-production" type="string">4Qm9xR0IodGDxcS9YIdGjtmkeDTsk0WQ</property>
+    <property name="acs-username-production" type="string">appc_app_user</property>
+    <property name="acs-password-production" type="string">Q8kql9viBlvCbf0XIQ</property>
+    <property name="appc-org-id" type="string">100109396</property>
+    <property name="appc-creator-user-id" type="string">d830e65d-346d-48f8-97bb-ee39e5323ec2</property>
+</ti:app>

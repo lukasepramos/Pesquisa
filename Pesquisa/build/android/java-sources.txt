@@ -1,0 +1,8 @@
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/android/support/v7/appcompat/R.java"
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/android/support/v7/cardview/R.java"
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/com/pesquisa/br/AssetCryptImpl.java"
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/com/pesquisa/br/PesquisaActivity.java"
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/com/pesquisa/br/PesquisaAppInfo.java"
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/com/pesquisa/br/PesquisaApplication.java"
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/com/pesquisa/br/R.java"
+"C:/Users/Lukas/Documents/Appcelerator_Studio_Workspace/Pesquisa/build/android/gen/ti/modules/titanium/ui/R.java"
