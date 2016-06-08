@@ -1,0 +1,32 @@
+{
+  "questao": [
+    {
+      "num": 1,
+      "type" : "radio",
+      "enunciado": "Qual a nota você da para o Brasil nos ultimos tempos?",
+      "alternativas": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ]
+    },
+    {
+      "num" : 2,
+      "type" : "check",
+      "enunciado": "Qual ou quais area gostaria de atuar?",
+      "alternativas": [
+        "Desenvolvimento Mobile",
+        "Desenvolvimento Web",
+        "Shell",
+        "Redes"
+      ]
+    }
+  ]
+  }
