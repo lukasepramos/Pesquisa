@@ -55,7 +55,7 @@ fFillCheck = function(questao, vPad){
 	    });
 	    vPad.add(bAlternativa);
 		};
-		
+
 	/*bAlternativa.ligar = function() {
     	this.borderColor = '#FFFFFF';
     	this.value = true;
@@ -65,7 +65,7 @@ fFillCheck = function(questao, vPad){
     	this.borderColor = '#000000';
     	this.value = false;
 	};*/
-	
+
 	/*bAlternativa.addEventListener('click', function(e) {
         /*if(false == e.source.value) {
         e.source.ligar();
@@ -76,10 +76,10 @@ fFillCheck = function(questao, vPad){
     tableView = Ti.UI.createTableView({
     	data : tButton
     });
- 	
+
    	return vPad;
 };
 
 fFillRadio = function(questao, vPad){
-	i = 0;	
+	i = 0;
 };

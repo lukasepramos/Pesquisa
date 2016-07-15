@@ -1,11 +1,15 @@
 var wMain;
 var vAbertura, vPadrao, vFinal;
-var lAbertura, lFinal;
+var lAbertura, lFinal, lEnum;
 var bIniciar;
-var questao,json,url,xhr;
-var funcao;
+var questao;
+var conexao;
 var i;
 var respostas = [];
+var checkButton = require('lib');
+var radioButton = require('lib');
+var alternativas;
+var json,url,xhr;
 
 //window
 wMain = Titanium.UI.createWindow({
@@ -69,8 +73,12 @@ lFinal = Titanium.UI.createLabel({
 	color: '#FFFFFF'
 });
 
-//Call other function
-funcao = require('function');
+lEnum = Titanium.UI.createLabel({
+   	font: {fontSize: 16},
+	text: "",
+	letf: 10,
+	color: 'white'
+});
 
 //Buttons
 bIniciar = Titanium.UI.createButton({
@@ -93,11 +101,55 @@ bProximo = Titanium.UI.createButton({
 
 bIniciar.addEventListener('click',function(e)
 {
-	i=1;
+	var questao;
+	conexao = require('conexao');
+	json = conexao.getJson();
+	i=0;
 	questao = json.questao[i];
-	vPadrao = funcao.fFill(questao, vPadrao);
-	vPadrao.add(bProximo);
-	wMain.add(vPadrao);
+	lEnum.setText = questao.enunciado;
+	switch (questao.type) {
+	case 'check':
+		alternativas = checkButton.createCheckButtonGroup({
+		    groupId : 1,
+		    width : Ti.UI.SIZE,
+		    height : Ti.UI.SIZE,
+		    left : 20,
+		    layout : 'vertical',
+		    checkItemsValue : questao.alternativas,
+		    checkItemsPadding : 10,
+		    checkItemsBackgroundSelectedImage : '/images/Programa/radio-checked.gif',
+		    checkItemsBackgroundImage : '/images/Programa/radio-unchecked.gif',
+		    checkItemsWidth : Ti.UI.SIZE,
+		    checkItemsHeight : Ti.UI.SIZE,
+		    labelColor : '#111',
+		});
+		break;
+	case 'radio':
+			alternativas = radioButton.createRadioButtonGroup({
+		    groupId : 1,
+		    width : Ti.UI.SIZE,
+		    height : Ti.UI.SIZE,
+		    left : 20,
+		    layout : 'vertical',
+		    radioItemsValue : questao.alternativas,
+		    radioItemsPadding : 10,
+		    radioItemsBackgroundSelectedImage : '/images/Programa/radio-checked.gif',
+		    radioItemsBackgroundImage : '/images/Programa/radio-unchecked.gif',
+		    radioItemsWidth : Ti.UI.SIZE,
+		    radioItemsHeight : Ti.UI.SIZE,
+		    labelColor : '#111',
+		});
+    	break;
+	default:
+    	alert('Error');
+    	break;
+	}
+	
+	bIniciar.setTitle = "proximo";
+	vPadrao.add(lEnum);
+	vPadrao.add(alternativas);
+	vPadrao.add(bIniciar);
+	
 });
 
 bProximo.addEventListener('click',function(e)
@@ -117,136 +169,8 @@ bProximo.addEventListener('click',function(e)
 	}
 });
 
-
-//definindo a função
-/*fUpdate = function(){
-	if(i<json.questao.length)
-	{
-		questao = json.questao[i];
-		lNum = Titanium.UI.createLabel({
-	   	font: {fontSize: 18},
-			top:10,
-			width: "100%",
-			text: "Questão Numero: " + questao.num + "\n",
-			color: 'white',
-			verticalAlign: 'center'
-		});
-		lEnum = Titanium.UI.createLabel({
-	   	font: {fontSize: 16},
-			text: questao.enunciado,
-			letf: 10,
-			color: 'white'
-		});
-		bResp1 = Titanium.UI.createButton({
-			title: questao.alternativas.a,
-	   		top: 200,
-	   		width: "100%",
-	   		height: "auto",
-	   		verticalAlign: 'center'
-		});
-		bResp1.addEventListener('click',function(e)
-		{
-			if(questao.alternativas.a==questao.resposta)
-			{
-				alert('Correto');
-				acertos++;
-			}
-			else
-			{
-				alert('Errado');
-			}
-			i++;
-      vPadrao.removeAllChildren();
-			fUpdate();
-		});
-		bResp2 = Titanium.UI.createButton({
-			title: questao.alternativas.b,
-	   		width: "100%",
-	   		height: "auto",
-	   		verticalAlign: 'center'
-		});
-		bResp2.addEventListener('click',function(e)
-		{
-			if(questao.alternativas.b==questao.resposta)
-			{
-				alert('Correto');
-				acertos++;
-			}
-			else
-			{
-				alert('Errado');
-			}
-			i++;
-			vPadrao.removeAllChildren();
-			fUpdate();
-		});
-		bResp3 = Titanium.UI.createButton({
-			title: questao.alternativas.c,
-	   		width: "100%",
-	   		height: "auto",
-	   		verticalAlign: 'center'
-		});
-		bResp3.addEventListener('click',function(e)
-		{
-			if(questao.alternativas.c==questao.resposta)
-			{
-				alert('Correto');
-				acertos++;
-			}
-			else
-			{
-				alert('Errado');
-			}
-			i++;
-			vPadrao.removeAllChildren();
-			fUpdate();
-		});
-		bResp4 = Titanium.UI.createButton({
-			title: questao.alternativas.d,
-	   		width: "100%",
-	   		height: "auto",
-	   		verticalAlign: 'center'
-		});
-		bResp4.addEventListener('click',function(e)
-		{
-			if(questao.alternativas.d==questao.resposta)
-			{
-				alert('Correto');
-				acertos++;
-			}
-			else
-			{
-				alert('Errado');
-			}
-			i++;
-			vPadrao.removeAllChildren();
-			fUpdate();
-		});
-		  vPadrao.add(lNum);
-	   	vPadrao.add(lEnum);
-	   	vPadrao.add(bResp1);
-	   	vPadrao.add(bResp2);
-	   	vPadrao.add(bResp3);
-	   	vPadrao.add(bResp4);
-	   	wMain.add(vPadrao);
-	}
-	else
-	{
-		lResutado = Titanium.UI.createLabel({
-	   		font: {fontSize: 18},
-			width: "100%",
-			text: "Acertou: " + acertos,
-			color: 'white',
-			verticalAlign: 'center'
-		});
-		vFinal.add(lResutado);
-		wMain.add(vFinal);
-	}
-
-};
-*/
-
 //Entrada do JSON
+
 url = "https://raw.githubusercontent.com/lukasepramos/Pesquisa/master/jsonQuestionario.txt"; //Criar url com json
 xhr = Ti.Network.createHTTPClient({
     onload: function() {
