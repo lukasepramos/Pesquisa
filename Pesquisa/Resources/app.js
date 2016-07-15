@@ -97,13 +97,12 @@ bProximo = Titanium.UI.createButton({
    	height: 'auto'
 });
 
-//buttons events
-
-bIniciar.addEventListener('click',function(e)
-{
+function onErrorJson(){	
+ //error do nothing.
+}
+function onSuccessJson(json){	
 	var questao;
-	conexao = require('conexao');
-	json = conexao.getJson();
+	
 	i=0;
 	questao = json.questao[i];
 	lEnum.setText = questao.enunciado;
@@ -125,7 +124,7 @@ bIniciar.addEventListener('click',function(e)
 		});
 		break;
 	case 'radio':
-			alternativas = radioButton.createRadioButtonGroup({
+		alternativas = radioButton.createRadioButtonGroup({
 		    groupId : 1,
 		    width : Ti.UI.SIZE,
 		    height : Ti.UI.SIZE,
@@ -152,6 +151,15 @@ bIniciar.addEventListener('click',function(e)
 	
 });
 
+
+//buttons events
+
+bIniciar.addEventListener('click',function(e)
+{
+	conexao = require('conexao');
+	conexao.getJson(onSuccessJson,onErrorJson);
+}
+
 bProximo.addEventListener('click',function(e)
 {
 	
@@ -170,7 +178,7 @@ bProximo.addEventListener('click',function(e)
 });
 
 //Entrada do JSON
-
+/*
 url = "https://raw.githubusercontent.com/lukasepramos/Pesquisa/master/jsonQuestionario.txt"; //Criar url com json
 xhr = Ti.Network.createHTTPClient({
     onload: function() {
@@ -187,6 +195,7 @@ xhr = Ti.Network.createHTTPClient({
 
 xhr.open("GET", url);
 xhr.send();
+*/
 vAbertura.add(lAbertura);
 wMain.add(vAbertura);
 vAbertura.add(bIniciar);
